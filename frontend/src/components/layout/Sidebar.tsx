@@ -11,8 +11,7 @@ import {
   Wallet,
   ShieldAlert,
   Activity,
-  LogOut,
-  ChevronRight
+  LogOut
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { cn } from "@/lib/utils";
@@ -28,7 +27,7 @@ const NAV_ITEMS = [
 ];
 
 export function Sidebar() {
-  const pathname = typeof window !== "undefined" ? window.location.pathname : "";
+  const pathname = usePathname();
   const router = useRouter();
   const { signOut, user } = useAuth();
 

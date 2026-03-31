@@ -12,8 +12,6 @@ import {
   MessageSquare,
   ArrowRight,
   Star,
-  CheckCircle2,
-  Activity,
 } from "lucide-react";
 
 const FEATURES = [
@@ -133,7 +131,7 @@ export default function LandingPage() {
       <section className="relative z-10 text-center pt-24 pb-20 px-6 max-w-5xl mx-auto">
         <div className="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-1.5 text-xs text-indigo-400 font-medium mb-8">
           <Star className="w-3.5 h-3.5" />
-          <span>India's First AI-Powered Investment OS</span>
+          <span>India&apos;s First AI-Powered Investment OS</span>
         </div>
 
         <div className="relative">
@@ -381,12 +379,12 @@ export default function LandingPage() {
       <section className="relative z-10 py-24 px-6 text-center">
         <div className="max-w-2xl mx-auto p-10 rounded-3xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 backdrop-blur-sm">
           <h2 className="text-4xl font-extrabold mb-4">Ready to take control?</h2>
-          <p className="text-slate-400 mb-8 text-lg">Join thousands of Indian investors who've upgraded their decision-making with VittaDrishti.</p>
+          <p className="text-slate-400 mb-8 text-lg">Join thousands of Indian investors who&apos;ve upgraded their decision-making with VittaDrishti.</p>
           <Link
             href="/signup"
             className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 px-10 py-4 rounded-xl font-bold text-base transition-all shadow-2xl shadow-indigo-500/30"
           >
-            <span>Get Started — It's Free</span>
+            <span>Get Started — It&apos;s Free</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <p className="text-xs text-slate-600 mt-4">No credit card required. No tricks.</p>

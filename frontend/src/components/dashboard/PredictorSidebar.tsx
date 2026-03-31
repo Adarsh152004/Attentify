@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Zap, Search, Loader2, Target, AlertCircle, TrendingUp, TrendingDown, Minus, Cpu, Activity } from "lucide-react";
+import { Search, Loader2, TrendingUp, TrendingDown, Minus, Cpu, Activity } from "lucide-react";
 import { CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -148,7 +148,7 @@ export function PredictorSidebar() {
                 <div className="space-y-1.5">
                   <p className="text-[8px] font-bold text-slate-600 uppercase tracking-widest italic">AI Rationale</p>
                   <p className="text-[10px] font-medium text-slate-400 leading-relaxed italic">
-                    "{result.reasoning}"
+                    &quot;{result.reasoning}&quot;
                   </p>
                 </div>
               </div>

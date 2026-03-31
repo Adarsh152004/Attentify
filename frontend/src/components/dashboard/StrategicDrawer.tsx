@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Search, Loader2, Target, TrendingUp, TrendingDown, Minus, Zap, Info, BarChart3, ChevronRight, Activity, ShieldHalf, Cpu } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { X, Search, Loader2, Target, TrendingUp, Zap, BarChart3, ChevronRight, Activity, ShieldHalf, Cpu } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
@@ -194,7 +193,7 @@ export function StrategicDrawer() {
                         <span className="text-[9px] font-bold text-slate-600 uppercase tracking-widest">AI Reasoning</span>
                      </div>
                      <p className="text-xs text-slate-400 leading-relaxed italic border-l-2 border-sky-500/20 pl-4 py-1">
-                        "{result.reasoning}"
+                        &quot;{result.reasoning}&quot;
                      </p>
                   </div>
                </div>

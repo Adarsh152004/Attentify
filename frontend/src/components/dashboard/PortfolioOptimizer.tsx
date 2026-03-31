@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { Plus, X, Target, Activity, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -40,7 +39,7 @@ export function PortfolioOptimizer() {
   const [error, setError] = useState("");
   const [isMounted, setIsMounted] = useState(false);
 
-  const fetchOptimization = async () => {
+  const fetchOptimization = useCallback(async () => {
     if (tickers.length === 0) return;
     setLoading(true);
     setError("");
@@ -61,18 +60,19 @@ export function PortfolioOptimizer() {
       const data = await res.json();
       setAllocation(data.allocation);
       setPerformance(data.performance);
-    } catch (err: any) {
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : "An unknown error occurred";
       console.error(err);
-      setError(err.message);
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }
-  };
+  }, [tickers, risk, period]);
 
   useEffect(() => {
     setIsMounted(true);
     fetchOptimization();
-  }, [risk, period, tickers.length]);
+  }, [fetchOptimization]);
 
   const addTicker = () => {
     if (tickers.length >= 10) {
@@ -212,7 +212,7 @@ export function PortfolioOptimizer() {
                   <Tooltip
                     contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '12px', padding: '12px' }}
                     itemStyle={{ fontSize: '10px', fontWeight: 'bold' }}
-                    formatter={(value: any) => [`${value}%`, 'Weight']}
+                    formatter={(value: number | string | undefined) => [`${value}%`, 'Weight']}
                   />
                 </PieChart>
               </ResponsiveContainer>

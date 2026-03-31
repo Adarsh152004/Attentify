@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 import { CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { TrendingUp, TrendingDown, Globe, Cpu, Zap } from "lucide-react";
+import { TrendingUp, TrendingDown, Cpu, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface MarketDataPoint {

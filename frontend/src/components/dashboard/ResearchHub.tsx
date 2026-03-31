@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Upload, FileText, CheckCircle, Loader2, X, BookOpen, ShieldCheck, Database, Cpu, Globe, ArrowUpRight } from "lucide-react";
+import { Upload, FileText, CheckCircle, Loader2, X, BookOpen, Database, Cpu, Globe, ArrowUpRight } from "lucide-react";
 import { CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 

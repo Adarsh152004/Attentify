@@ -49,7 +49,7 @@ export default function FloatingAssistant() {
       const data = await response.json();
       
       setMessages(prev => [...prev, { role: "bot", content: data.answer || data.response || "Synthesis incomplete." }]);
-    } catch (error) {
+    } catch (_error) {
       setMessages(prev => [...prev, { role: "bot", content: "Error: Neural Link Interrupted." }]);
     } finally {
       setLoading(false);

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Zap, AlertTriangle, CheckCircle, ShieldAlert, Newspaper, Search, Loader2, Link2 } from "lucide-react";
+import { AlertTriangle, CheckCircle, ShieldAlert, Newspaper, Search, Loader2, Link2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface NewsItem {
@@ -89,7 +89,7 @@ export function VeracityWidget() {
             </div>
 
             <div className="space-y-3">
-              <p className="text-xs font-bold text-white leading-tight italic border-l-2 border-sky-500 pl-4 py-1">"{selectedNews.headline}"</p>
+              <p className="text-xs font-bold text-white leading-tight italic border-l-2 border-sky-500 pl-4 py-1">&quot;{selectedNews.headline}&quot;</p>
               <div className="flex gap-3 items-start p-4 bg-slate-900 rounded-lg border border-slate-800">
                  {getIcon(veracity.trust_score)}
                  <p className="text-[10px] font-medium text-slate-400 leading-relaxed ">{veracity.reasoning}</p>

@@ -7,11 +7,8 @@ import {
   TrendingDown, 
   Minus, 
   Clock, 
-  Zap, 
   Loader2,
   Share2,
-  Activity,
-  Globe,
   ArrowUpRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
