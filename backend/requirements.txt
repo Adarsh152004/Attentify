@@ -1,0 +1,16 @@
+fastapi[standard]
+uvicorn
+pydantic
+google-genai
+google-generativeai
+python-dotenv
+yfinance
+duckduckgo-search
+PyPortfolioOpt
+pandas
+groq
+tavily-python
+pinecone
+PyPDF2
+python-multipart
+supabase>=2.0.0
