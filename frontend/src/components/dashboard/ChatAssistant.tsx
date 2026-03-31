@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { Send, Bot, User, Loader2, Globe, FileText, Cpu, Terminal, ShieldCheck, Zap } from "lucide-react";
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { API_BASE_URL } from "@/lib/api";
 
 interface Message {
   id: string;
@@ -53,7 +54,7 @@ export function ChatAssistant({ hideHeader = false }: { hideHeader?: boolean }) 
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/api/chat", {
+      const res = await fetch(`${API_BASE_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text, use_web: useWeb }),

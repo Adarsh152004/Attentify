@@ -1,90 +1,101 @@
-# SMART FINANCE SOLUTIONS
+# Attentify: AI Financial Intelligence Hub
 
-An AI-powered financial intelligence platform with a React frontend, Node.js backend, and Python FastAPI AI service. Features portfolio generation, RAG-based chat, and PDF research summarization.
+Attentify is a high-performance financial intelligence platform that combines real-time market data, AI-driven predictive modeling, and conversational research into a unified interface.
 
-## Architecture
+## 🏗️ Technical Architecture
 
-* **Frontend (`/frontend`)**: React 18, Vite, Tailwind CSS, Recharts. Premium fintech dark theme.
-* **Backend (`/backend`)**: Node.js, Express, Supabase SDK (Server-Side), News Ingestion (Alpha Vantage).
-* **AI Backend (`/ai-backend`)**: Python, FastAPI, Google Gemini API, Pinecone, PyPDF2.
-* **Database**: Supabase (PostgreSQL + Auth).
+* **Frontend (`/frontend`)**: Next.js 14, React 18, Tailwind CSS, Framer Motion, and Recharts. Designed with a premium, industrial-grade Fintech aesthetic.
+* **Backend (`/backend`)**: Python FastAPI server handling RAG (Retrieval-Augmented Generation), portfolio optimization, and AI predictive analysis.
+* **Intelligence Layer**: Google Gemini Pro for reasoning, Pinecone for vector search, and custom financial algorithms for volatility modeling.
+* **Database**: Supabase (PostgreSQL) for secure trade history and user settings.
 
 ---
 
-## 🚀 Setup Instructions
+## 🚀 Local Setup Instructions
 
 ### 1. Prerequisites
-1. Node.js (v18+)
-2. Python (3.10+)
-3. Supabase Project (Database & Auth setup via the Migration SQL provided in the agent planning)
-4. Pinecone Account (Create a 768-dimension index named `finance-rag-index` with `cosine` metric)
-5. Google Gemini API Key
-6. Alpha Vantage API Key  (Free level)
+* **Node.js** (v18+)
+* **Python** (3.10+)
+* **Supabase Project** (Database for portfolio and user data)
+* **Pinecone Account** (Index: 768-dimension, Cosine metric)
 
 ### 2. Configure Environment Variables
 
-Navigate to each folder and rename `.env.example` to `.env`, then fill in your keys:
-
-#### `/frontend/.env`
-```env
-VITE_SUPABASE_URL=your_supabase_project_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-VITE_API_BASE_URL=http://localhost:4000/api
-```
+Create `.env` files in both the `/backend` and `/frontend` directories using the reference in the root `.env`:
 
 #### `/backend/.env`
 ```env
-PORT=4000
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_SERVICE_KEY=your_supabase_service_role_key
-AI_SERVER_URL=http://localhost:8000
-ALPHA_VANTAGE_API_KEY=your_alpha_vantage_key
+GEMINI_API_KEY=your_gemini_key
+PINECONE_API_KEY=your_pinecone_key
+PINECONE_ENVIRONMENT=your_region
+PINECONE_INDEX_NAME=your_index
+SUPABASE_URL=your_supabase_url
+SUPABASE_SERVICE_KEY=your_service_role_key
+GROQ_API_KEY=your_groq_key
+TAVILY_API_KEY=your_tavily_key
+ALPHA_VANTAGE_API_KEY=your_av_key
 ```
 
-#### `/ai-backend/.env`
+#### `/frontend/.env`
 ```env
-GEMINI_API_KEY=your_google_gemini_api_key
-PINECONE_API_KEY=your_pinecone_api_key
-PINECONE_ENVIRONMENT=your_pinecone_env
-PINECONE_INDEX_NAME=finance-rag-index
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_SERVICE_KEY=your_supabase_service_role_key
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
-### 3. Install Dependencies & Run
+### 3. Execution
 
-You need to run all three services concurrently.
+You need to run both services concurrently:
 
 #### Tab 1: AI Backend (Python)
 ```bash
-cd ai-backend
+cd backend
 python -m venv venv
-# On Windows: venv\Scripts\activate
-# On Mac/Linux: source venv/bin/activate
+# Windows: venv\Scripts\activate | Mac/Linux: source venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
 
-#### Tab 2: Node Backend
-```bash
-cd backend
-npm install
-npm run dev
-```
-
-#### Tab 3: React Frontend
+#### Tab 2: Frontend (Next.js)
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`.
+Visit: `http://localhost:3000`
 
 ---
 
-## Deployment Strategy
+## 🌐 Deploy to Render
 
-* **Frontend**: Deploy to Vercel or Netlify. Connect standard build commands `npm run build`.
-* **Backend**: Deploy to Render or Railway as a standard Node.js Web Service.
-* **AI Backend**: Deploy to Railway or standard cloud VM. Ensure `uvicorn main:app --host 0.0.0.0` is the start command.
+Attentify is pre-configured for one-click deployment on [Render](https://render.com) using the provided `render.yaml` blueprint.
+
+### Option A: Automatic Blueprint Deployment
+1. Connect your GitHub repository to Render.
+2. Go to **Blueprints** and click **New Blueprint Instance**.
+3. Render will automatically detect `render.yaml` and prompt you for the required environment variables.
+4. Deploy!
+
+### Option B: Manual Setup
+If you prefer setting up services individually:
+
+#### 1. Backend (Web Service)
+* **Runtime**: Python
+* **Build Command**: `pip install -r requirements.txt`
+* **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+* **Root Directory**: `backend`
+
+#### 2. Frontend (Web Service)
+* **Runtime**: Node / Next.js
+* **Build Command**: `npm install && npm run build`
+* **Start Command**: `npm run start`
+* **Root Directory**: `frontend`
+* **Env Var**: `NEXT_PUBLIC_API_URL` set to your backend's Render URL.
+
+---
+
+## 🛠️ Performance & Security
+* **RAG Pipeline**: Optimized for low-latency retrieval from financial PDFs and live web search.
+* **Security**: All database interactions are protected via Supabase RLS (Row Level Security) and Service Role keys on the backend.
+* **Scaling**: Ready for vertical scaling on Render for high-concurrency AI inference.

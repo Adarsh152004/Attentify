@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Zap, Search, Loader2, Target, TrendingUp, TrendingDown, Minus, ChevronUp, ChevronDown, Sparkles, Cpu } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { API_BASE_URL } from "@/lib/api";
 
 interface PredictionResult {
   symbol: string;
@@ -27,7 +28,7 @@ export function IntelligenceTray() {
     setLoading(true);
     setResult(null); 
     try {
-      const res = await fetch("http://localhost:8000/api/predict", {
+      const res = await fetch(`${API_BASE_URL}/api/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query }),
