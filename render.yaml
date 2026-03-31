@@ -45,7 +45,4 @@ services:
       - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
         sync: false
       - key: NEXT_PUBLIC_API_URL
-        fromService:
-          name: attentify-backend
-          type: web
-          property: url
+        sync: false

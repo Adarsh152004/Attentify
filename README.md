@@ -75,7 +75,8 @@ Attentify is pre-configured for one-click deployment on [Render](https://render.
 1. Connect your GitHub repository to Render.
 2. Go to **Blueprints** and click **New Blueprint Instance**.
 3. Render will automatically detect `render.yaml` and prompt you for the required environment variables.
-4. Deploy!
+4. **Note**: For `NEXT_PUBLIC_API_URL`, you should enter the expected public URL of your backend (e.g., `https://attentify-backend.onrender.com`).
+5. Deploy!
 
 ### Option B: Manual Setup
 If you prefer setting up services individually:
