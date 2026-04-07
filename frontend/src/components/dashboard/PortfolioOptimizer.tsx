@@ -212,7 +212,12 @@ export function PortfolioOptimizer() {
                   <Tooltip
                     contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: '12px', padding: '12px' }}
                     itemStyle={{ fontSize: '10px', fontWeight: 'bold' }}
-                    formatter={(value: number | string | undefined) => [`${value}%`, 'Weight']}
+                    formatter={(value) => {
+                          if (Array.isArray(value)) {
+                            return [`${value[0]}%`, 'Weight'];
+                          }
+                          return [`${value}%`, 'Weight'];
+                        }}
                   />
                 </PieChart>
               </ResponsiveContainer>
