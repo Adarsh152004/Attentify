@@ -46,6 +46,12 @@ interface Holding {
   sector: string;
 }
 
+interface SaveHolding {
+  ticker: string;
+  quantity: number;
+  purchase_price: number;
+}
+
 interface PortfolioStatus {
   holdings: Holding[];
   total_value: number;
@@ -78,7 +84,7 @@ export default function PortfolioPage() {
 
   useEffect(() => { fetchStatus(); }, []);
 
-  const savePortfolio = async (updatedHoldings: Holding []) => {
+  const savePortfolio = async (updatedHoldings: SaveHolding []) => {
     try {
       await fetch("http://localhost:8000/api/portfolio/save", {
         method: "POST",
