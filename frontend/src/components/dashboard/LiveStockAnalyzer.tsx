@@ -1,13 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Search, Zap, TrendingUp, TrendingDown, BookOpen, ExternalLink, Cpu, Activity, Globe, ArrowRight } from "lucide-react";
+import { Search, Zap, TrendingUp, TrendingDown,Cpu, Activity, Globe, ArrowRight } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { cn } from "@/lib/utils";
+
 
 interface AnalysisResponse {
   ticker: string;
@@ -51,9 +49,9 @@ export function LiveStockAnalyzer() {
       
       const result = await res.json();
       setData(result);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(err.message || "Failed to connect to Intelligence Core.");
+      setError((err as Error).message || "Failed to connect to Intelligence Core.");
     } finally {
       setLoading(false);
     }
@@ -150,7 +148,7 @@ export function LiveStockAnalyzer() {
                 <ReactMarkdown 
                   remarkPlugins={[remarkGfm]}
                   components={{
-                    a: ({node, ...props}) => <a {...props} target="_blank" rel="noopener noreferrer" />
+                    a: ({...props}) => <a {...props} target="_blank" rel="noopener noreferrer" />
                   }}
                 >
                   {data.analysis}

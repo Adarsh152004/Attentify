@@ -33,7 +33,7 @@ export default function SimulatorPage() {
                 
                 <p className="text-slate-400 text-sm leading-relaxed font-medium max-w-xl">
                   Run simulated market shock scenarios and systemic black swan events to evaluate 
-                  your portfolio's resilience. Identify mission-critical vulnerabilities before 
+                  your portfolio&apos;s resilience. Identify mission-critical vulnerabilities before 
                   they manifest in live markets.
                 </p>
 

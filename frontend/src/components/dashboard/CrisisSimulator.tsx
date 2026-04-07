@@ -3,18 +3,10 @@
 import { useState, useEffect } from "react";
 import { API_BASE_URL } from "@/lib/api";
 import { 
-  AlertTriangle, 
-  TrendingDown, 
-  TrendingUp,
   Zap, 
-  Play, 
-  Info, 
-  Skull,
   BarChart3,
-  RefreshCw,
   Activity,
   ShieldAlert,
-  Flame,
   Target
 } from "lucide-react";
 import { CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";

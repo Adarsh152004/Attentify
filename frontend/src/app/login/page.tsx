@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { Zap, Eye, EyeOff, ArrowRight, ShieldCheck, Lock } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 export default function LoginPage() {
   const router = useRouter();

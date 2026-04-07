@@ -69,6 +69,7 @@ export function ChatAssistant({ hideHeader = false }: { hideHeader?: boolean }) 
       };
       setMessages((prev) => [...prev, aiMsg]);
     } catch (err) {
+      console.error("Error communicating with AI core:", err);
       setMessages((prev) => [
         ...prev,
         {

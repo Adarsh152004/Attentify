@@ -18,8 +18,6 @@ import {
   Zap,
   ChevronRight
 } from "lucide-react";
-import { CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 
 import { 
   PieChart, 
@@ -80,7 +78,7 @@ export default function PortfolioPage() {
 
   useEffect(() => { fetchStatus(); }, []);
 
-  const savePortfolio = async (updatedHoldings: any[]) => {
+  const savePortfolio = async (updatedHoldings: Holding []) => {
     try {
       await fetch("http://localhost:8000/api/portfolio/save", {
         method: "POST",
@@ -89,7 +87,7 @@ export default function PortfolioPage() {
       });
       fetchStatus();
     } catch (err) {
-      alert("Failed to save portfolio");
+      alert(`Failed to save portfolio: ${err}`);
     }
   };
 
@@ -246,7 +244,7 @@ export default function PortfolioPage() {
                              dataKey="value"
                              stroke="none"
                            >
-                             {getSectorData().map((entry: any, index: number) => (
+                             {getSectorData().map((entry: { name: string; value: number }, index: number) => (
                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                              ))}
                            </Pie>
@@ -312,7 +310,7 @@ export default function PortfolioPage() {
                          cursor={{ fill: '#1e293b' }}
                        />
                        <Bar dataKey="pl" radius={[4, 4, 0, 0]} barSize={32}>
-                         {getPLData().map((entry: any, index: number) => (
+                         {getPLData().map((entry: { pl: number }, index: number) => (
                            <Cell key={`cell-${index}`} fill={entry.pl >= 0 ? '#10b981' : '#f43f5e'} />
                          ))}
                        </Bar>

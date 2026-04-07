@@ -49,7 +49,8 @@ export default function FloatingAssistant() {
       const data = await response.json();
       
       setMessages(prev => [...prev, { role: "bot", content: data.answer || data.response || "Synthesis incomplete." }]);
-    } catch (_error) {
+    } catch (err: unknown) {
+      console.error("Error in chat communication:", err);
       setMessages(prev => [...prev, { role: "bot", content: "Error: Neural Link Interrupted." }]);
     } finally {
       setLoading(false);

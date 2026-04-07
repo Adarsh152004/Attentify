@@ -4,8 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import { Zap, Eye, EyeOff, ArrowRight, CheckCircle2, ShieldCheck, Lock } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Zap, Eye, EyeOff, ArrowRight, CheckCircle2, ShieldCheck} from "lucide-react";
 
 const PERKS = [
   "Live NSE/BSE Market Data",
@@ -57,7 +56,7 @@ export default function SignupPage() {
              <span className="text-sky-400">Intelligence</span>
            </h1>
            <p className="text-slate-400 text-sm max-w-sm leading-relaxed mb-10">
-             Join thousands of investors using VittaDrishti's advanced AI to navigate the markets.
+             Join thousands of investors using VittaDrishti&apos;s advanced AI to navigate the markets.
            </p>
 
            <div className="space-y-4">

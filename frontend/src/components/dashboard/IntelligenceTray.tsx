@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Zap, Search, Loader2, Target, TrendingUp, TrendingDown, Minus, ChevronUp, ChevronDown, Sparkles, Cpu } from "lucide-react";
+import { Zap, Search, Loader2, TrendingUp, TrendingDown, Minus, ChevronUp, ChevronDown, Cpu } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { API_BASE_URL } from "@/lib/api";
@@ -193,7 +193,7 @@ export function IntelligenceTray() {
                          AI Rationale
                        </h4>
                        <p className="text-[11px] font-medium text-slate-400 leading-relaxed line-clamp-4 italic">
-                         "{result.reasoning}"
+                         &quot;{result.reasoning}&quot;
                        </p>
                     </div>
                   </div>

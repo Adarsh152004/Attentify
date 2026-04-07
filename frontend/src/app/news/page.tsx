@@ -3,7 +3,7 @@
 import { NewsFeed } from "@/components/dashboard/NewsFeed";
 import { StrategicDrawer } from "@/components/dashboard/StrategicDrawer";
 import { Sidebar } from "@/components/layout/Sidebar";
-import { Rss, Activity, ShieldCheck, Globe } from "lucide-react";
+import { Rss, Activity, Globe } from "lucide-react";
 
 export default function NewsPage() {
   return (
